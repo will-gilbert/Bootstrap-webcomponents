@@ -29,13 +29,6 @@ Web component use both value based attribute and boolean attribute to control st
 Currently, Jan 2020, these web components render correctly with the lastest versions of Chrome, Firefox, Firefox Developer Edition.  All components except ```Breadcrumbs``` render with the lastest macOS version of Safari.  Didn't test on MicroSoft Edge or any versions of IE.
 
 
-## GitHub Demo
-
-  * [Badges, Buttons, Alerts, Tooltips, Progress Bars, Spinners and Loaders](./index.html)
-  * [Cards](./cards.html)
-  * [Breadcrunbs](./breadcrumbs.html)
-
-
 ## Local Demo
 
 If you open each HTML locally running in a web server environment e.g. Visual Studio's **"Live Server"** or node.js' ```live-server```.
