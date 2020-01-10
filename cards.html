@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap as Web Components</title>
+
+  <link rel="shortcut icon" href="demo-assets/favicon.ico">
+  
+  <style>
+
+    body {
+      margin: 10px 60px;
+    }
+
+    .sans {
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    bswc-card {
+      margin: 10px;
+      max-width: 600px;
+    }
+
+    .small {
+      max-width: 200px;
+    }
+    .large {
+      max-width: 450px;
+    }
+
+    .header {
+      font-size:larger;
+      text-align: center;
+      margin: 10px 15px;
+    }
+
+    .body {
+      margin: 10px 15px;
+    }
+
+    .footer {
+      margin: 5px 15px;
+    }
+
+  </style>
+
+  <script type='module' src="./js/Button.js"></script>
+  <script type='module' src="./js/Card.js"></script>
+</head>
+<body>
+
+
+  <!-- C A R D S  ================================================================ -->
+  <div>
+    <h2>Cards</h2>
+  
+      <bswc-card class='sans small'>
+        <div class='header' slot='header'>Header goes here</div>
+        <div class='footer' slot='footer'>
+          <bswc-button>X</bswc-button>
+          <bswc-button>Y</bswc-button>
+        </div>
+        <div class='body' slot='body'>
+        Everthing else goes here, the default slot, and it should  wrap properly per
+        the width set by the card.
+      </div>
+      </bswc-card>
+  
+      <bswc-card primary>
+        <div class='header' slot='header'>Primary</div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua.<br/><br/>Tortor condimentum lacinia quis vel eros donec. Sed sed risus pretium quam vulputate dignissim suspendisse.
+      </bswc-card>
+
+      <bswc-card secondary>Secondary</bswc-card>
+
+      <bswc-card class='large' success>
+        <div class='header' slot='header'>Success</div>
+        Titulo continentes professional non le. Non tu sine vista, esser capital national pro da, al duo super libera. Cinque
+        latino periodicos da del, web de gode infra, da pro giuseppe excellente.
+        <br /><br />
+        Uno regula flexione al. Un parlar professional sia, pan de maximo intermediari. De con human libro, al asia germano
+        qualcunque pan, veni qualcunque da sia. 
+      </bswc-card>
+      <bswc-card info>Info</bswc-card>
+      <bswc-card warning>Warning</bswc-card>
+
+      <bswc-card class='large' danger>
+
+        <div class='header' slot='header'>
+          <img width=410 height=300 src='https://picsum.photos/410/300'>
+        </div>
+        <div class='sans body' slot='body'>
+          This is a random image from <a href='https://picusm.photos'>Lorem Picsum</a>. Which will download
+          an new image each time the page is refreshed.
+        </div>
+        <div class='footer' slot='footer' style='float:right;'>
+          <bswc-button danger>Cancel</bswc-button>
+          <bswc-button success>OK</bswc-button>
+        </div>
+
+      </bswc-card>
+
+      <bswc-card light>Light</bswc-card>
+      <bswc-card dark>Dark</bswc-card>
+  
+  </div>
+
+
+</body>
+</html>

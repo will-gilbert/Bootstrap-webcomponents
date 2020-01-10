@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap as Web Components</title>
+
+  <link rel="shortcut icon" href="demo-assets/favicon.ico">
+  
+  <style>
+    body {
+      margin: 10px 60px;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    #progress-bars {
+      max-width: 60%;
+    }
+  </style>
+
+  <script type='module' src='./js/Badge.js'></script>
+  <script type='module' src='./js/Button.js'></script>
+  <script type='module' src='./js/Alert.js'></script>
+  <script type='module' src='./js/Tooltip.js'></script>
+  <script type='module' src="./js/ProgressBar.js"></script>
+  <script type='module' src="./js/Spinner.js"></script>
+  <script type='module' src="./js/Loader.js"></script>
+  
+
+</head>
+<body>
+
+<div>
+
+     
+  <!-- B A D G E S =============================================================== -->
+  <div>
+    <h2>Badges</h2>
+
+    <div>
+      <bswc-badge>Default</bswc-badge>
+      <bswc-badge primary>Primary</bswc-badge>
+      <bswc-badge secondary>Secondary</bswc-badge>
+      <bswc-badge success>Success</bswc-badge>
+      <bswc-badge info>Info</bswc-badge>
+      <bswc-badge warning>Warning</bswc-badge>
+      <bswc-badge danger>Danger</bswc-badge>
+      <bswc-badge light>Light</bswc-badge>
+      <bswc-badge dark>Dark</bswc-badge>
+    </div>
+
+  </div>
+
+  <!-- P I L L   B A D G E S  =============================================================  -->
+  <div>
+    <h2>Pill Badges</h2>
+  
+    <div>
+      <bswc-badge pill>Default</bswc-badge>
+      <bswc-badge pill primary>Primary</bswc-badge>
+      <bswc-badge pill secondary>secondary</bswc-badge>
+      <bswc-badge pill success>Success</bswc-badge>
+      <bswc-badge pill info>Info</bswc-badge>
+      <bswc-badge pill warning>Warning</bswc-badge>
+      <bswc-badge pill danger>Danger</bswc-badge>
+      <bswc-badge pill light>Light</bswc-badge>
+      <bswc-badge pill dark>Dark</bswc-badge>
+    </div>
+  
+    <div>
+      <bswc-button primary>Button with Pill<bswc-badge pill light>4</bswc-badge>
+      </bswc-button>
+    </div>
+  
+  </div>
+
+
+  <!-- B U T T O N S ====================================================================  -->
+  <div>
+    <h2>Buttons</h2>
+    
+    <div>
+      <bswc-button>Default</bswc-button>
+      <bswc-button primary>Primary</bswc-button>
+      <bswc-button secondary>Secondary</bswc-button>
+      <bswc-button success>Success</bswc-button>
+      <bswc-button info>Info</bswc-button>
+      <bswc-button warning>Warning</bswc-button>
+      <bswc-button danger>Danger</bswc-button>
+      <bswc-button light>Light</bswc-button>
+      <bswc-button dark>dark</bswc-button>
+      <bswc-button link>Link</bswc-button>
+    </div>
+  </div>
+
+    <!-- A L E R T ================================================================= -->
+    <div>
+      <h2>Alerts</h2>
+    
+      <div style='width:60%'>
+        <bswc-alert close>Default</bswc-alert>
+        <bswc-alert primary close>Primary</bswc-alert>
+        <bswc-alert secondary close>Secondary</bswc-alert>
+        <bswc-alert success close>Success</bswc-alert>
+        <bswc-alert info>Info</bswc-alert>
+        <bswc-alert warning close>Warning</bswc-alert>
+        <bswc-alert danger close>Danger</bswc-alert>
+        <bswc-alert light close>Light</bswc-alert>
+        <bswc-alert dark close>Dark</bswc-alert>
+      </div>
+    </div>
+
+  <!-- T O O L T I P ============================================================= -->
+  <div>
+    <h2>Tooltips</h2>
+    <div>
+      <p>
+        <bswc-tooltip tip='Below "Bottom"' bottom 
+                    delay=0.0 
+                    duration=0.0>Bottom, no delay</bswc-tooltip>
+        <span style='margin: 20px'>|</span>
+
+        <bswc-tooltip tip='Above "Top" and very long tip' top 
+                    width=300>Top, wide tip</bswc-tooltip>
+        <span style='margin: 20px'>|</span>
+
+        <bswc-tooltip tip='Next to "Left"' left 
+                    delay=2.0>Left, 2s delay</bswc-tooltip>
+        <span style='margin: 20px'>|</span>
+
+        <bswc-tooltip tip='Next to "Right"' right 
+                    duration=1.0>Right, 1s duration</bswc-tooltip>
+        <span style='margin: 20px'>|</span>
+
+        <bswc-tooltip tip='Default is "top"'>Default</bswc-tooltip>
+      </p>
+
+      <bswc-tooltip tip='Over the Button' top>
+        <bswc-button id="tooltip-target">Button</bswc-button>
+      </bswc-tooltip>
+      
+
+    </div>
+  </div>
+
+  <!-- P R O G R E S S   B A R S ============================================ -->
+  
+  <div>
+    <h2>Progress Bars</h2>
+  
+    <div id='progress-bars'>
+      <bswc-progress-bar value='10' width=300px>10%</bswc-progress-bar>
+      <bswc-progress-bar value='20' info>Moving along</bswc-progress-bar>
+      <bswc-progress-bar value='40' success>Half done!</bswc-progress-bar>
+      <bswc-progress-bar value='60' warning striped>60 percent completed</bswc-progress-bar>
+      <bswc-progress-bar value='80' danger striped animated>80% World domination almost complete!</bswc-progress-bar>
+      <bswc-progress-bar value='100' secondary striped animated>D O N E !</bswc-progress-bar>
+    </div>
+  </div>
+
+  <!-- S P I N N E R S =========================================================== -->
+  
+  <div>
+    <h2>Spinners</h2>
+  
+    <div>
+      <bswc-spinner scale='.8'></bswc-spinner>
+      <bswc-spinner scale='.7'></bswc-spinner>
+      <bswc-spinner scale='.6'></bswc-spinner>
+      <bswc-spinner scale='.5'></bswc-spinner>
+      <bswc-spinner scale='.4'></bswc-spinner>
+      <bswc-spinner scale='.3'></bswc-spinner>
+      <bswc-spinner scale='.2'></bswc-spinner>
+      <bswc-spinner scale='.1'></bswc-spinner>
+    </div>
+
+    <div>
+      <bswc-spinner></bswc-spinner>
+      <bswc-spinner primary></bswc-spinner>
+      <bswc-spinner secondary></bswc-spinner>
+      <bswc-spinner success></bswc-spinner>
+      <bswc-spinner info></bswc-spinner>
+      <bswc-spinner warning></bswc-spinner>
+      <bswc-spinner danger></bswc-spinner>
+      <bswc-spinner light></bswc-spinner>
+      <bswc-spinner dark></bswc-spinner>
+    </div>
+    <div>
+      <bswc-spinner grow></bswc-spinner>
+      <bswc-spinner grow primary></bswc-spinner>
+      <bswc-spinner grow secondary></bswc-spinner>
+      <bswc-spinner grow success></bswc-spinner>
+      <bswc-spinner grow info></bswc-spinner>
+      <bswc-spinner grow warning></bswc-spinner>
+      <bswc-spinner grow danger></bswc-spinner>
+      <bswc-spinner grow light></bswc-spinner>
+      <bswc-spinner grow dark></bswc-spinner>
+    </div>
+    <div>
+      <bswc-spinner pulse></bswc-spinner>
+      <bswc-spinner pulse duration=0.5 primary></bswc-spinner>
+      <bswc-spinner pulse duration=1.0 secondary></bswc-spinner>
+      <bswc-spinner pulse duration=1.5 success></bswc-spinner>
+      <bswc-spinner pulse duration=2.0 info></bswc-spinner>
+      <bswc-spinner pulse duration=2.5 warning></bswc-spinner>
+      <bswc-spinner pulse duration=3.0 danger></bswc-spinner>
+      <bswc-spinner pulse duration=3.5 light></bswc-spinner>
+      <bswc-spinner pulse duration=4.0 dark></bswc-spinner>
+    </div>
+
+  </div>
+
+  <!-- L O A D I N G   B A R S  =================================================== -->
+  
+  <div>
+    <h2>Loaders</h2>
+  
+    <div>
+      <bswc-loader></bswc-loader>
+      <bswc-loader scale=.9 bars primary></bswc-loader>
+      <bswc-loader scale=.8 bars secondary></bswc-loader>
+      <bswc-loader scale=.7 bars success></bswc-loader>
+      <bswc-loader scale=.6 bars info></bswc-loader>
+      <bswc-loader scale=.5 bars warning></bswc-loader>
+      <bswc-loader scale=.4 bars danger></bswc-loader>
+      <bswc-loader scale=.3 bars light></bswc-loader>
+      <bswc-loader scale=.2 bars dark></bswc-loader>
+    </div>
+  
+    <div>
+      <bswc-loader circles></bswc-loader>
+      <bswc-loader scale=.9 circles primary></bswc-loader>
+      <bswc-loader scale=.8 circles secondary></bswc-loader>
+      <bswc-loader scale=.7 circles success></bswc-loader>
+      <bswc-loader scale=.6 circles info></bswc-loader>
+      <bswc-loader scale=.5 circles warning></bswc-loader>
+      <bswc-loader scale=.4 circles danger></bswc-loader>
+      <bswc-loader scale=.3 circles light></bswc-loader>
+      <bswc-loader scale=.2 circles dark></bswc-loader>
+    </div>
+
+      <div>
+        <bswc-loader facebook></bswc-loader>
+        <bswc-loader scale=.9 facebook primary></bswc-loader>
+        <bswc-loader scale=.8 facebook secondary></bswc-loader>
+        <bswc-loader scale=.7 facebook success></bswc-loader>
+        <bswc-loader scale=.6 facebook info></bswc-loader>
+        <bswc-loader scale=.5 facebook warning></bswc-loader>
+        <bswc-loader scale=.4 facebook danger></bswc-loader>
+        <bswc-loader scale=.3 facebook light></bswc-loader>
+        <bswc-loader scale=.2 facebook dark></bswc-loader>
+      </div>
+
+  </div>
+
+
+</div>
+
+</body>
+</html>
