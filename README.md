@@ -1,4 +1,5 @@
-#Bootstrap as Web Components
+
+##Bootstrap as Web Components
 
 Based on the work of Mike Costello, [Demo](http://mikecostello.github.io/bootstrap-web-components) and
 [Repository](https://github.com/MikeCostello/bootstrap-web-components).
