@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Modal Window as a Web Component</title>
+
+  <link rel="shortcut icon" href="demo-assets/favicon.ico">
+
+  <style>
+    
+    body {
+      margin: 10px 60px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .sans {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+  
+    .header {
+      font-size: larger;
+      text-align: center;
+      margin: 10px 15px;
+    }
+
+    .body {
+      margin: 10px 15px;
+    }
+
+    .footer {
+      margin: 5px 15px;
+    }
+
+    bswc-modal bswc-button {
+      float:right;
+      margin-right:10px;
+    }
+
+
+  </style>
+
+  <script type='module' src="./js/Button.js"></script>
+  <script type='module' src="./js/Modal.js"></script>
+</head>
+
+<body>
+
+
+  <!-- C A R D S  ================================================================ -->
+  <div>
+    <h2>Modal Dialogs</h2>
+
+    <bswc-button class='openModalBtn' default data-target='modal-2'>Default Modal</bswc-button>
+    <bswc-button class='openModalBtn' warning data-target='modal-3'>Warning</bswc-button>
+    <bswc-button class='openModalBtn' success data-target='modal-1'>Modal with buttons</bswc-button>
+    <bswc-button class='openModalBtn' danger data-target='modal-4'>Danger Modal</bswc-button>
+
+    <bswc-modal id='modal-1' width='450px' success>
+    
+      <div class='header' slot='header'>
+        <h3>A Random Image</h3>
+        <img width=410 height=300 src='https://picsum.photos/410/300'>
+      </div>
+
+      <div class='sans body' slot='body'>
+        This is a random image from <a href='https://picusm.photos'>Lorem Picsum</a>. Which will download
+        an new image each time the page is refreshed.
+      </div>
+      
+      <div class='footer' slot='footer'>
+        <bswc-button success>OK</bswc-button>
+        <bswc-button danger>Cancel</bswc-button>
+      </div>
+    
+    </bswc-modal>
+
+
+      <bswc-modal id='modal-2'>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua.<br /><br />Tortor condimentum lacinia quis vel eros donec. Sed sed risus pretium quam vulputate dignissim
+        suspendisse.
+      </bswc-modal>
+
+
+      <bswc-modal id='modal-3' class='large' warning>
+        <div class='header' slot='header'>Success</div>
+        Titulo continentes professional non le. Non tu sine vista, esser capital national pro da, al duo super libera. Cinque
+        latino periodicos da del, web de gode infra, da pro giuseppe excellente.
+        <br /><br />
+        Uno regula flexione al. Un parlar professional sia, pan de maximo intermediari. De con human libro, al asia germano
+        qualcunque pan, veni qualcunque da sia.
+      </bswc-modal>
+
+      <bswc-modal id='modal-4' danger>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua.<br /><br />Tortor condimentum lacinia quis vel eros donec. Sed sed risus pretium quam vulputate dignissim
+        suspendisse.
+      </bswc-modal>
+
+  </div>
+
+  <script>
+
+    // Use a single click listener for all modal opening buttons
+    const openModal = (event) => {
+      const target = event.srcElement.getAttribute('data-target');
+      const element = document.getElementById(target)
+      if(element)
+        element.setAttribute('visible', true);
+    }
+
+    // Use the 'openModal' listener to open the targeted modal
+    const openModalButtons = document.querySelectorAll('bswc-button.openModalBtn');
+    [...openModalButtons].forEach(element => element.addEventListener('click', openModal));
+
+
+    // A click listener to every button within a Modal; Demo purposes only.
+    const closeModal = (event) => {
+      const modelElement = event.target.parentElement.parentElement;
+      modelElement.setAttribute('visible', false);
+    }
+
+    // Add the 'closeModal' click listener to all dialog buttons  
+    const dialogButtons = document.querySelectorAll('bswc-modal bswc-button');
+    [...dialogButtons].forEach(element => element.addEventListener('click', closeModal));
+
+    
+  </script>
+
+
+</body>
+
+</html>

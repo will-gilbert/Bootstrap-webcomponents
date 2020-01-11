@@ -34,6 +34,7 @@ Currently, Jan 2020, these web components render correctly with the lastest vers
 * [Badges, Buttons, Alerts, Tooltips, Progress Bars, Spinners and Loaders](http://willgilbert.org/Bootstrap-webcomponents/)
 * [Cards](http://willgilbert.org/Bootstrap-webcomponents/cards.html)
 * [Breadcrumbs](http://willgilbert.org/Bootstrap-webcomponents/breadcrumbs.html)
+* [Modals](http://willgilbert.org/Bootstrap-webcomponents/modal.html)
 
 ## Local Demo
 
