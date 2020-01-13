@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap as Web Components</title>
+
+  <link rel="shortcut icon" href="demo-assets/favicon.ico">
+  
+  <style>
+    body {
+      margin: 10px 60px;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+  </style>
+
+  <script type='module' src="./js/Button.js"></script>
+  <script type='module' src="./js/Toast.js"></script>
+  
+
+</head>
+<body>
+
+<div>
+
+     
+  
+  
+  
+  <!-- T O A S T  ================================================================= -->
+  <div>
+    <h2>Toast / Snackbars</h2>
+    
+    <bswc-button class='openToastBtn' default data-target='toast-1'>Default Toast</bswc-button>
+    <bswc-button class='openToastBtn' primary data-target='toast-2'>Text Toast</bswc-button>
+    <bswc-button class='openToastBtn' success data-target='toast-4'>Success Toast</bswc-button>
+    <bswc-button class='openToastBtn' info data-target='toast-5'>INfo Toast</bswc-button>
+    <bswc-button class='openToastBtn' warning data-target='toast-6'>Waring Toast</bswc-button>
+    <bswc-button class='openToastBtn' danger data-target='toast-7'>Danger Toast</bswc-button>
+    <bswc-button class='openToastBtn' light data-target='toast-8'>Light Toast</bswc-button>
+    <bswc-button class='openToastBtn' dark data-target='toast-9'>Dark Toast</bswc-button>
+    
+    <div>
+      <bswc-toast id='toast-1' hasClose>Default: Message goes here</bswc-toast>
+      <bswc-toast id='toast-2' primary hasClose width=300>
+        <div slot='title'>A Salute to the Nation</div>
+       Titulo continentes professional non le. Non tu sine vista, esser capital national pro da, al duo super libera. Cinque
+      latino periodicos da del, web de gode infra, da pro giuseppe excellente.
+      <br /><br />
+      Uno regula flexione al. Un parlar professional sia, pan de maximo intermediari. De con human libro, al asia germano
+      qualcunque pan, veni qualcunque da sia.</bswc-toast>
+      <bswc-toast id='toast-3' warning hasClose duration=5.0 width=600>Warning</bswc-toast>
+  
+      <bswc-toast id='toast-4' success hasClose>Success</bswc-toast>
+      <bswc-toast id='toast-5' info>Info</bswc-toast>
+      <bswc-toast id='toast-6' warning duration=5.0 width=600 hasClose>Warning; 600ps wide, duration of 5 seconds</bswc-toast>
+      <bswc-toast id='toast-7' danger hasClose>Danger</bswc-toast>
+      <bswc-toast id='toast-8' light hasClose>Light</bswc-toast>
+      <bswc-toast id='toast-9' dark hasClose>Dark</bswc-toast>
+      
+    </div>
+  </div>
+  
+
+</div>
+
+<script>
+
+  // Use a single click listener for all toast opening buttons
+  const openToast = (event) => {
+    const target = event.srcElement.getAttribute('data-target');
+    const element = document.getElementById(target)
+
+    // Before rendering a new toast; Close any open ones
+    const toasts = document.querySelectorAll('bswc-toast');
+    [...toasts].forEach(toast => {
+      if (toast.getAttribute('visible') === 'true')
+        toast.setAttribute('visible', 'false');
+    });
+
+    if (element) {
+      element.setAttribute('visible', 'true');
+    }
+  }
+
+  // Use the 'openToast' listener to open the targeted modal
+  const openToastBtns = document.querySelectorAll('bswc-button.openToastBtn');
+  [...openToastBtns].forEach(element => element.addEventListener('click', openToast));
+
+
+</script>
+
+
+
+</body>
+</html>
