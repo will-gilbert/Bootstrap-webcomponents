@@ -27,7 +27,9 @@ Web component use both value based attribute and boolean attribute to control st
 
 ## Compatability
 
-Currently, Jan 2020, these web components render correctly with the lastest versions of Chrome, Firefox, Firefox Developer Edition.  All components except ```Breadcrumbs``` render with the lastest macOS version of Safari.  Didn't work on MicroSoft Edge or any versions of IE because *ShadowDOM* support may not yet be available.
+Currently, Jan 2020, these web components render correctly with the lastest versions of Chrome, Firefox, Firefox Developer Edition.  All components except ```Breadcrumbs``` render with the lastest macOS version of Safari.  
+
+Didn't work on MicroSoft Edge or any versions of IE because *ShadowDOM* support may not yet be available. However, works great with [Microsoft Edge Beta](https://www.microsoftedgeinsider.com)
 
 ## Live Demo
 
