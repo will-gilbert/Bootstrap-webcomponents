@@ -30,8 +30,6 @@ export default class Toast extends HTMLElement {
 
   render() {
 
-    console.log('Rendering')
-
     this.shadowRoot.innerHTML = `
             ${this.css()}
             ${this.html()} 

@@ -81,6 +81,8 @@ export default class Modal extends HTMLElement {
         font-family: inherit;
         background: rgba(0, 0, 0, 0.6);
         z-index: 99999;
+        opacity: 0.0;
+        pointer-events: none; 
       }
 
       #content {
@@ -97,14 +99,26 @@ export default class Modal extends HTMLElement {
         font-family: inherit;
       }
 
-      .show {
+      #container.show {
         opacity: 1.0;
         pointer-events: auto;
+        animation: fadein 0.5s;
       }
 
       .hide {
         opacity: 0.0;
         pointer-events: none;
+        animation: fadeout 0.5s;
+      }
+
+      @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+      }
+
+      @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
       }
 
       #close {
