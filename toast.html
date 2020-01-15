@@ -70,7 +70,9 @@
     const target = event.srcElement.getAttribute('data-target');
     const element = document.getElementById(target)
 
-    // Before rendering a new toast; Close any open ones
+    // Before rendering a new toast; Close any open ones; Could not implement
+    //  this inside of the 'bswc-toast' web component without creating a 
+    //  stack overflow.
     const toasts = document.querySelectorAll('bswc-toast');
     [...toasts].forEach(toast => {
       if (toast.getAttribute('visible') === 'true')

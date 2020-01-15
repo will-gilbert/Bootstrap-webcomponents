@@ -33,6 +33,11 @@
       margin: 5px 15px;
     }
 
+    .title {
+      color: blueviolet;
+      font-weight: bold;
+    }
+
     bswc-modal bswc-button {
       float:right;
       margin-right:10px;
@@ -43,6 +48,7 @@
 
   <script type='module' src="./js/Button.js"></script>
   <script type='module' src="./js/Modal.js"></script>
+  <script type='module' src="./js/Toast.js"></script>
 </head>
 
 <body>
@@ -101,12 +107,52 @@
 
   </div>
 
+
+  <!-- T O A S T  ================================================================= -->
+  <div>
+    <h2>Toast / Snackbars</h2>
+  
+    <bswc-button class='openToastBtn' default data-target='toast-1'>Default Toast</bswc-button>
+    <bswc-button class='openToastBtn' primary data-target='toast-2'>Text Toast</bswc-button>
+    <bswc-button class='openToastBtn' success data-target='toast-4'>Success Toast</bswc-button>
+    <bswc-button class='openToastBtn' info data-target='toast-5'>Info Toast</bswc-button>
+    <bswc-button class='openToastBtn' warning data-target='toast-6'>Waring Toast</bswc-button>
+    <bswc-button class='openToastBtn' danger data-target='toast-7'>Danger Toast</bswc-button>
+    <bswc-button class='openToastBtn' light data-target='toast-8'>Light Toast</bswc-button>
+    <bswc-button class='openToastBtn' dark data-target='toast-9'>Dark Toast</bswc-button>
+  
+    <div>
+      <bswc-toast id='toast-1' hasClose>Default: Message goes here</bswc-toast>
+      <bswc-toast id='toast-2' primary hasClose width=300>
+        <div class='title' slot='title'>Styled title can go here</div>
+        Titulo continentes professional non le. Non tu sine vista, esser capital national pro da, al duo super libera.
+        Cinque
+        latino periodicos da del, web de gode infra, da pro giuseppe excellente.
+        <br /><br />
+        Uno regula flexione al. Un parlar professional sia, pan de maximo intermediari. De con human libro, al asia
+        germano
+        qualcunque pan, veni qualcunque da sia.
+      </bswc-toast>
+      <bswc-toast id='toast-3' warning hasClose duration=5.0 width=600>Warning</bswc-toast>
+  
+      <bswc-toast id='toast-4' success hasClose>Success</bswc-toast>
+      <bswc-toast id='toast-5' info>Info</bswc-toast>
+      <bswc-toast id='toast-6' warning duration=5.0 width=600 hasClose>Warning; 600ps wide, duration of 5 seconds
+      </bswc-toast>
+      <bswc-toast id='toast-7' danger hasClose>Danger</bswc-toast>
+      <bswc-toast id='toast-8' light hasClose>Light</bswc-toast>
+      <bswc-toast id='toast-9' dark hasClose>Dark</bswc-toast>
+  
+    </div>
+  </div>
+
+
   <script>
 
     // Use a single click listener for all modal opening buttons
     const openModal = (event) => {
       const target = event.srcElement.getAttribute('data-target');
-      const element = document.getElementById(target)
+      const element = document.getElementById(target);
       if(element)
         element.setAttribute('visible', true);
     }
@@ -124,9 +170,35 @@
 
     // Add the 'closeModal' click listener to all dialog buttons  
     const dialogButtons = document.querySelectorAll('bswc-modal bswc-button');
-    [...dialogButtons].forEach(element => element.addEventListener('click', closeModal));
+    [...dialogButtons].forEach( element => element.addEventListener('click', closeModal));
 
     
+    // Use a single click listener for all toast opening buttons
+    const openToast = (event) => {
+      
+      // Before rendering a new toast; Close any open ones; Could not implement
+      //  this inside of the 'bswc-toast' web component without creating a 
+      //  stack overflow.
+
+      const toasts = document.querySelectorAll('bswc-toast');
+      [...toasts].forEach( toast => {
+        if (toast.getAttribute('visible') === 'true')
+        toast.setAttribute('visible', false);
+      });
+      
+      // Find the 'Toast' element by ID using the button's 'data-target'
+      const target = event.srcElement.getAttribute('data-target');
+      const element = document.getElementById(target);
+      if (element) {
+        element.setAttribute('visible', true);
+      }
+
+    }
+
+    // Use the 'openToast' listener to open the targeted modal
+    const openToastBtns = document.querySelectorAll('bswc-button.openToastBtn');
+    [...openToastBtns].forEach(element => element.addEventListener('click', openToast));
+      
   </script>
 
 

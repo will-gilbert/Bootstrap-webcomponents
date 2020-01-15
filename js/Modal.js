@@ -28,20 +28,36 @@ export default class Modal extends HTMLElement {
             ${this.html()} 
         `;
 
-    const visible = (this.getAttribute('visible') || 'false').toLowerCase() === 'true';
-    const element = this.shadowRoot.getElementById('container')
+    // Nothing to see here, skip rendering; NB: Setting visible='false'
+    //  will cause the component to breifly appear and fade to opacity of 0
+    if(this.hasAttribute('visible') === false) {
+      return;
+    }
 
-    if(visible) {
+    // Show the component using a fadein/fadeout on hide
+    const visible = (this.getAttribute('visible') || 'false').toLowerCase() === 'true';
+    const element = this.shadowRoot.getElementById('container');
+
+    // Need 'focus' & 'tabindex=0' in order to receive 'Escape' key to close
+    if( visible ) {
       element.classList.remove('hide');
       element.classList.add('show');
+      element.focus();
     } else {
       element.classList.remove('show');
       element.classList.add('hide');
     }
 
+    // Close icon handler; TODO: create Custom close event
     this.shadowRoot.querySelector('#close').addEventListener('click', event => {
       this.setAttribute('visible', 'false')
-      // ToDo: create Custom close event   
+    })
+
+    // 'Esc' key to close the modal
+    this.shadowRoot.querySelector('#container').addEventListener('keydown', event => {
+      if(event.keyCode === 27) {
+        this.setAttribute('visible', 'false')
+      }
     })
   }
 
@@ -55,7 +71,7 @@ export default class Modal extends HTMLElement {
       }
     })
 
-    return `<div id='container'>
+    return `<div id='container' tabindex='0'>
               <div id='content' class='${type}'>
                 <div id="close">X</div>
                 <slot name='header'></slot>
@@ -81,8 +97,8 @@ export default class Modal extends HTMLElement {
         font-family: inherit;
         background: rgba(0, 0, 0, 0.6);
         z-index: 99999;
-        opacity: 0.0;
-        pointer-events: none; 
+        opacity: 0;
+        pointer-events: none;
       }
 
       #content {
@@ -105,20 +121,20 @@ export default class Modal extends HTMLElement {
         animation: fadein 0.5s;
       }
 
-      .hide {
-        opacity: 0.0;
+      #container.hide {
+        opacity: 0;
         pointer-events: none;
         animation: fadeout 0.5s;
       }
 
       @keyframes fadein {
-        from {bottom: 0; opacity: 0;}
-        to {bottom: 30px; opacity: 1;}
+        from {opacity: 0;}
+        to {opacity: 1;}
       }
 
       @keyframes fadeout {
-        from {bottom: 30px; opacity: 1;}
-        to {bottom: 0; opacity: 0;}
+        from {opacity: 1;}
+        to {opacity: 0;}
       }
 
       #close {

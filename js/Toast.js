@@ -1,9 +1,4 @@
 
-/*
-https://www.w3schools.com/howto/howto_js_snackbar.asp
-https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_snackbar
-*/
-
 
 export default class Toast extends HTMLElement {
 
@@ -42,6 +37,7 @@ export default class Toast extends HTMLElement {
     // Invoke at start and if the close icon is clicked
     if (visible) {
       element.classList.add('show');
+      element.focus();
 
       // Timeout; Is overriden by close icon click.
       // NB: Give enought time for the fadeout to complete
@@ -54,9 +50,16 @@ export default class Toast extends HTMLElement {
       element.classList.remove('show');
     }
 
+    // Close icon handler; TODO: create Custom close event
     this.shadowRoot.querySelector('button').addEventListener('click', event => {
       this.setAttribute('visible', 'false')
-      // ToDo: create Custom close event   
+    })
+
+    // 'Esc' key to close the modal
+    this.shadowRoot.querySelector('#container').addEventListener('keydown', event => {
+      if (event.keyCode === 27) {
+        this.setAttribute('visible', 'false')
+      }
     })
 
   }
@@ -78,7 +81,7 @@ export default class Toast extends HTMLElement {
     let closeIcon = hasClose ? 'X' : '';
 
 
-    return `<div id='container' class='${type}'>
+    return `<div id='container' class='${type}' tabindex='0'>
               <button class='${classList}'>${closeIcon}</button>
               <slot id='title' name='title'></slot>
               <slot></slot>
@@ -105,10 +108,12 @@ export default class Toast extends HTMLElement {
         background-repeat: repeat-x;
         text-align: left;
         border-radius: 4px;
-        z-index: 1;
+        z-index: 99999;
         font-size: 14px;
         visibility: hidden;
       }
+
+      div#container:focus { outline: none; }
 
       button {
         display: inline-block;
