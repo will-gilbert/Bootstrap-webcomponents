@@ -36,8 +36,7 @@ Didn't work on MicroSoft Edge or any versions of IE because *ShadowDOM* support 
 * [Badges, Buttons, Alerts, Tooltips, Progress Bars, Spinners and Loaders](http://willgilbert.org/Bootstrap-webcomponents/)
 * [Cards](http://willgilbert.org/Bootstrap-webcomponents/cards.html)
 * [Breadcrumbs](http://willgilbert.org/Bootstrap-webcomponents/breadcrumbs.html)
-* [Modals](http://willgilbert.org/Bootstrap-webcomponents/modal.html)
-* [Toast/Snackbars](http://willgilbert.org/Bootstrap-webcomponents/toast.html)
+* [ModalsToast/Snackbars](http://willgilbert.org/Bootstrap-webcomponents/modal.html)
 
 ## Local Demo
 
