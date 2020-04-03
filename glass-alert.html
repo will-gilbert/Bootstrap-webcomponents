@@ -18,6 +18,7 @@
 
   <script type='module' src="./js/Button.js"></script>
   <script type='module' src="./js/GlassAlert.js"></script>
+  <script type='module' src="./js/Loader.js"></script>
 </head>
 
 <body>
@@ -37,6 +38,11 @@
 
     <bswc-button info id='openGlassAlert-3'>Timeout, 3 seconds</bswc-button>
     <bswc-glass-alert id='glass-alert-3' info timeout=3>Timeout</bswc-glass-alert>
+
+    <bswc-button primary id='openGlassAlert-4'>Spinner</bswc-button>
+    <bswc-glass-alert id='glass-alert-4' primary timeout=3>
+        <bswc-loader scale=0.5 primary></bswc-loader>
+    </bswc-glass-alert>
   </div>
 
   <script>
@@ -56,6 +62,10 @@
       element.setAttribute('visible', 'true');
     })
 
+    document.getElementById('openGlassAlert-4').addEventListener('click', event => {
+      const element = document.getElementById('glass-alert-4')
+      element.setAttribute('visible', 'true');
+    })
   </script>
 
 

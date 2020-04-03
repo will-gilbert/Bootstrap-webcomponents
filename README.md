@@ -33,10 +33,12 @@ Didn't work on MicroSoft Edge or any versions of IE because *ShadowDOM* support 
 
 ## Live Demo
 
-* [Badges, Buttons, Alerts, Tooltips, Progress Bars, Spinners and Loaders](http://willgilbert.org/Bootstrap-webcomponents/)
+* [Badges, Buttons and Tooltips](http://willgilbert.org/Bootstrap-webcomponents/basic.html)
+* [Alerts](http://willgilbert.org/Bootstrap-webcomponents/alerts.html)
+* [Progress Bars, Spinners and Loaders](http://willgilbert.org/Bootstrap-webcomponents/animated.html)
 * [Cards](http://willgilbert.org/Bootstrap-webcomponents/cards.html)
 * [Breadcrumbs](http://willgilbert.org/Bootstrap-webcomponents/breadcrumbs.html)
-* [Modals/Toast/Snackbars](http://willgilbert.org/Bootstrap-webcomponents/modal.html)
+* [Modals and Snackbars](http://willgilbert.org/Bootstrap-webcomponents/modal.html)
 * [Glass Alert](http://willgilbert.org/Bootstrap-webcomponents/glass-alert.html)
 
 ## Local Demo
